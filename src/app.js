@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const familyDropDown = new FamilySelect(familyDiv)
   familyDropDown.bindEvents()
 
-  const infoDiv = document.querySelector('#body')
+  const infoDiv = document.querySelector('#info')
   const familyInfo = new FamilyInfo(infoDiv)
   familyInfo.bindEvents()
 

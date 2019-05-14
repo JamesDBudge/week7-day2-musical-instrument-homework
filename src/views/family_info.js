@@ -13,12 +13,32 @@ FamilyInfo.prototype.bindEvents = function () {
 };
 
 FamilyInfo.prototype.render = function (family) {
-    const familyName = document.createElement('h3')
-    familyName.textContent = `${family.name}`
-    this.element.appendChild(familyName)
-    const familyInfo = document.createElement('p')
-    familyInfo.textContent = `${family.description}`
-    this.element.appendChild(familyInfo)
+  this.element.innerHTML = '';
+  const familyName = document.createElement('h3')
+  familyName.textContent = `${family.name}`
+  this.element.appendChild(familyName)
+
+  const familyInfo = document.createElement('p')
+  familyInfo.textContent = `${family.description}`
+  this.element.appendChild(familyInfo)
+
+  const exampleHeader = document.createElement('h4')
+  exampleHeader.textContent = "Instruments Include:"
+  this.element.appendChild(exampleHeader)
+
+  const instrumentList = document.createElement('ul')
+  instrumentList.id = "list"
+  this.element.appendChild(instrumentList)
+  document.querySelector('#list')
+
+  const instruments = family.instruments
+  console.log(instruments);
+  for (let instrument of instruments) {
+    const listItem = document.createElement('li')
+    listItem.textContent = `${instrument}`
+    this.element.appendChild(listItem)
+  }
+
 };
 
 module.exports = FamilyInfo
